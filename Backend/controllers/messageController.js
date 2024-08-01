@@ -25,3 +25,14 @@ export const sendMessage = async(req,res,next) => {
     console.log(error);
   }
 };
+
+
+export const getMessage=async(req,res,next)=>{
+  try {
+const messages= await Message.find();
+res.send({msg:"all messages",messages})
+    
+  } catch (error) {
+    console.log(error);
+  }
+}

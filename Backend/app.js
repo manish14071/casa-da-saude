@@ -5,6 +5,8 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import router from "./Routes/messageRouter.js";
+import userRouter from "./Routes/userRouter.js";
+import appointmentRouter from "./Routes/appointmentRouter.js";
 import {errorMiddleware}from "./Middlewares/errorMiddleware.js"
 
 const app = express();
@@ -30,7 +32,8 @@ app.use(
 );
 
 app.use("/api/v1/message", router);
-
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/appointment",appointmentRouter)
 
 app.use(errorMiddleware)
 
