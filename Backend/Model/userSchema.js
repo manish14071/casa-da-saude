@@ -41,7 +41,7 @@ dob:{
 gender:{
     type:String,
     required:true,
-    enum:["male","female"],
+    enum:["Male","Female"],
 },
 password:{
     type:String,

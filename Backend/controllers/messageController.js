@@ -17,10 +17,11 @@ export const sendMessage = async(req,res,next) => {
       message,
     });
     if (create) {
-      res.send({ msg: "created success!" });
-    } else {
-      res.send({ msg: "error in controller" });
-    }
+      res.status(200).json({
+        success: true,
+        create
+    } )
+  }
   } catch (error) {
     console.log(error);
   }

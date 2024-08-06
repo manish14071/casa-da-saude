@@ -3,7 +3,8 @@ import { User } from "../Model/userSchema.js";
 import { generateToken } from "../utils/jwtToken.js";
 import cloudinary from "cloudinary"
 
-export const patientRegister = async (req, res, next) => {
+
+export const patientRegister = async (req, res,next) => {
   try {
     const {
       firstName,
@@ -16,11 +17,25 @@ export const patientRegister = async (req, res, next) => {
       sns,
       role,
     } = req.body;
-    let user = await User.findOne({ email });
-    if (user) {
+
+
+    if (
+      !firstName ||
+      !lastName ||
+      !email ||
+      !phone ||
+      !nic ||
+      !dob ||
+      !gender ||
+      !password
+    ) {
+      return next(new ErrorHandler("Please Fill Full Form!", 400));
+    }
+    let isRegistered = await User.findOne({ email });
+    if (isRegistered) {
       return new ErrorHandler("user already registered");
     }
-    user = await User.create({
+    const user = await User.create({
       firstName,
       lastName,
       email,
@@ -29,7 +44,7 @@ export const patientRegister = async (req, res, next) => {
       gender,
       dob,
       sns,
-      role,
+      role:"Patient",
     });
     generateToken(user, "user Registered", 200, res);
     res.send({ msg: "user created!!" });
@@ -60,7 +75,7 @@ export const login = async (req, res, next) => {
       return next(new ErrorHandler("User with role not found"));
     }
 
-    generateToken(user, "user login", 200, res);
+    generateToken(user, " Login successfully", 200, res);
   } catch (error) {
     console.log(error);
   }
@@ -98,7 +113,7 @@ export const addNewAdmin = async (req, res, next) => {
       role: "Admin",
     });
 
-    res.send({ msg: "admin registered" });
+    res.send({ msg: "Admin registered" });
   } catch (error) {
     console.log(error);
   }
@@ -126,7 +141,7 @@ export const logOutAdmin = (req, res, next) => {
       })
       .json({
         success: true,
-        message: "Admin logged out",
+        message: "Admin logged out Successfully",
       });
   } catch (error) {
     console.log(error);
@@ -143,7 +158,7 @@ export const logOutPatient = (req, res, next) => {
       })
       .json({
         success: true,
-        message: " Patient logged out",
+        message: "  Logged out Successfully",
       });
   } catch (error) {
     console.log(error);
