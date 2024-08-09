@@ -21,7 +21,7 @@ const AddNewAdmin = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5677/api/v1/user/admin/register",
+        "https://casa-da-saude.onrender.com/api/v1/user/admin/register",
         {
           firstName,
           lastName,

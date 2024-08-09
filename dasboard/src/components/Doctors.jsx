@@ -12,7 +12,7 @@ const Doctors = () => {
 useEffect(()=>{
   const fetchDoctors=async()=>{
     try {
-      const {data}=await axios.get("http://localhost:5677/api/v1/user/doctors",{
+      const {data}=await axios.get("https://casa-da-saude.onrender.com/api/v1/user/doctors",{
         withCredentials:true
       })
       setDoctors(data.doctors);

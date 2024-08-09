@@ -20,7 +20,7 @@ const App = () => {
     const fetchUSer = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5677/api/v1/user/patient/me",
+          "https://casa-da-saude.onrender.com/api/v1/user/patient/me",
           { withCredentials: true }
         );
         setIsAuthenticated(true);

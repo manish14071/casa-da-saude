@@ -13,7 +13,7 @@ const Messages = () => {
     const fetchMessages = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:5677/api/v1/message/getall",
+          "https://casa-da-saude.onrender.com/api/v1/message/getall",
           {
             withCredentials: true,
           }

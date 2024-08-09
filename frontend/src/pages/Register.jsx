@@ -22,7 +22,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5677/api/v1/user/patient/register",
+        "https://casa-da-saude.onrender.com/api/v1/user/patient/register",
         {
           firstName,
           lastName,

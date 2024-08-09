@@ -13,7 +13,7 @@ const MessageForm = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:5677/api/v1/message/send",
+        "https://casa-da-saude.onrender.com/api/v1/message/send",
         { firstName, lastName,phone, email, message },
         {
           withCredentials: true,

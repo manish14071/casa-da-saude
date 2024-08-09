@@ -12,7 +12,7 @@ const NavBar = () => {
   const handleLogout = async () => {
     try {
       await axios
-        .get("http://localhost:5677/api/v1/user/patient/logout", {
+        .get("https://casa-da-saude.onrender.com/api/v1/user/patient/logout", {
           withCredentials: true,
         })
         .then((res) => {
