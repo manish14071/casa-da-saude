@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-
 import axios from "axios";
+
 import {  useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const AppointmentForm = () => {
@@ -44,7 +44,7 @@ const AppointmentForm = () => {
     fetchDoctors();
   }, []);
 
-  const navigateTo = useNavigate();
+  
   const handleAppointment = async (e) => {
     e.preventDefault();
     try {
@@ -74,7 +74,19 @@ const AppointmentForm = () => {
         }
       );
       toast.success(data.message);
-      navigateTo("/");
+      setFirstName(""),
+      setLastName(""),
+      setEmail(""),
+      setPhone(""),
+      setSns(""),
+      setGender(""),
+      setDob(""),
+      setAppointmentDate(""),
+      setDepartment(""),
+      setDoctorFirstName(""),
+      setDoctorLastName(""),
+      setAddress(""),
+      setHasVisited("")
     } catch (error) {
       toast.error(error.response.data.message);
     }

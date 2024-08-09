@@ -32,13 +32,14 @@ const NavBar = () => {
     <nav className="container">
       <div className="logo">
         {" "}
-        <img src="/frontend/public/logo.png" alt="logo" srcset="logo-img" />
+        <img src="/logo.png" alt="logo" srcset="logo-img" />
       </div>
       <div className={show ? "navLinks showmenu" : "navLinks"}>
         <div className="links">
           <Link to={"/"}>HOME</Link>
           <Link to={"/appointment"}>APPOINTMENT</Link>
           <Link to={"/about"}>ABOUT US</Link>
+          
         </div>
         {isAuthenticated ? (
           <button className="logoutBtn btn" onClick={handleLogout}>
