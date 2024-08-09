@@ -148,6 +148,8 @@ export const logOutAdmin = (req, res, next) => {
       .cookie("adminToken", "", {
         httpOnly: true,
         expires: new Date(Date.now()),
+        secure:true,
+        sameSite:"None"
       })
       .json({
         success: true,
@@ -165,6 +167,8 @@ export const logOutPatient = (req, res, next) => {
       .cookie("patientToken", "", {
         httpOnly: true,
         expires: new Date(Date.now()),
+        secure:true,
+        sameSite:"None",
       })
       .json({
         success: true,
