@@ -15,7 +15,7 @@ export const patientRegister = async(req, res, next) => {
       gender,
       dob,
       sns,
-      role,
+      
     } = req.body;
 
     if (
@@ -46,7 +46,7 @@ export const patientRegister = async(req, res, next) => {
       role: "Patient",
     });
     generateToken(user, "user Registered", 200, res);
-    res.send({ msg: "user created!!" });
+  
   } catch (error) {
     console.log(error);
   }
