@@ -123,7 +123,11 @@ export const addNewAdmin = async (req, res, next) => {
       role: "Admin",
     });
 
-    res.send({ msg: "Admin registered" });
+    res.status(200).json({
+      success: true,
+      message: "New Admin Registered",
+      admin,
+    });
   } catch (error) {
     console.log(error);
   }
@@ -252,7 +256,11 @@ export const addNewDoctor = async (req, res, next) => {
         url: cloudinaryResponse.secure_url,
       },
     });
-    res.send({ msg: "new dr added", doctor });
+    res.status(200).json({
+      success: true,
+      message: "New Doctor Registered",
+      doctor,
+    });
   } catch (error) {
     console.log(error);
   }

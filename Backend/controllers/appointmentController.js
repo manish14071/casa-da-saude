@@ -75,7 +75,11 @@ export const makeAppointment = async (req, res, next) => {
       patientId,
     });
 
-res.send({msg:"appointment created"})
+    res.status(200).json({
+      success: true,
+      appointment,
+      message: "Appointment Send!",
+    });
 
   } catch (error) {
     console.log(error);
@@ -110,10 +114,14 @@ export const updateAppointmentStatus=async(req,res,next)=>{
       useFindAndModify:false,
     });
 
-res.send({msg:"updated successfully",appointment})
+    res.status(200).json({
+      success: true,
+      message: "Appointment Status Updated!",
+    });
 
 
   } catch (error) {
+    console.log(error);
     
   }
 }
@@ -129,10 +137,14 @@ export const deleteAppointment=async(req,res,next)=>{
 
    await Appointment.deleteOne()
 
-res.send({msg:"appointment deleted successfully",appointment})
+   res.status(200).json({
+    success: true,
+    message: "Appointment Deleted!",
+  });
 
 
   } catch (error) {
+    console.log(error);
     
   }
   
